@@ -1,4 +1,5 @@
 import "./App.css";
+import Button from "./Button";
 import List from "./List";
 import Search from "./Search";
 import Welcome from "./Welcome";
@@ -55,6 +56,15 @@ function App() {
     setShow2(!isShow2);
   };
 
+  //How to pass Props from child to parent Component
+  const [greeting3, setGreeting3] = useState("Welcome to React 3");
+  const [isShow3, setShow3] = useState(true);
+  const handleChange3 = (e) => {
+    setGreeting3(e.target.value);
+  };
+  const handleToggle3 = () => {
+    setShow3(!isShow3);
+  };
   return (
     <div>
       <h1>Hello {getTitle("React")}</h1>
@@ -68,10 +78,13 @@ function App() {
       <button onClick={handleToggle}>Toggle</button>
       {isShow ? <Welcome text={greeting} /> : null}
 
-      <input type="text" value={greeting2} onChange={handleChange2} />
       <button onClick={handleToggle2}>Toggle</button>
+      <input type="text" value={greeting2} onChange={handleChange2} />
       {isShow2 ? <Welcome text={greeting2} /> : null}
 
+      <Button label="Toggle" onClick={handleToggle3} />
+      <input type="text" value={greeting3} onChange={handleChange3} />
+      {isShow3 ? <Welcome text={greeting3} /> : null}
       <hr />
       <h2>List friends</h2>
       <ul>
