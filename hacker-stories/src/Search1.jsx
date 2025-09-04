@@ -1,10 +1,11 @@
 import React from "react";
 
-const Search1 = (props) => {
+//Object Destructuring
+const Search1 = ({ search, onSearch }) => {
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={props.onSearch} />
+      <input id="search" type="text" value={search} onChange={onSearch} />
     </div>
   );
 };
