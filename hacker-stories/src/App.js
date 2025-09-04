@@ -6,8 +6,9 @@ import Euro from "./Euro";
 import List from "./List";
 import Pound from "./Pound";
 import Search from "./Search";
+import Search1 from "./Search1";
 import Welcome from "./Welcome";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 
 function getTitle(title) {
   return title;
@@ -87,6 +88,15 @@ function App() {
   const handleDecrease5 = () => {
     setTimeout(() => setCount5(count5 - 1), 1000);
   };
+
+  //Lifting State in React
+  const [searchTerm, setSearchTerm] = useState("");
+  const handelSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  const searchedStories = list.filter((story) =>
+    story.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <div>
       <h1>Hello {getTitle("React")}</h1>
@@ -130,6 +140,11 @@ function App() {
         <button type="button" onClick={handleDecrease5}>
           Decrease
         </button>
+      </div>
+      <hr />
+      <Search1 onSearch={handelSearch} />
+      <div>
+        <List list={searchedStories} />
       </div>
     </div>
   );
