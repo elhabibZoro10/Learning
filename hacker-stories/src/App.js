@@ -93,7 +93,9 @@ function App() {
       <input type="text" value={greeting3} onChange={handleChange3} />
       {isShow3 ? <Welcome text={greeting3} /> : null}
 
-      <Button1 label4={count} disabled={false} onClick4={handleIncrement} />
+      <Button1 disabled={false} onClick4={handleIncrement}>
+        {count}
+      </Button1>
 
       <hr />
       <h2>List friends</h2>
