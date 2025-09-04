@@ -142,7 +142,7 @@ function App() {
         </button>
       </div>
       <hr />
-      <Search1 onSearch={handelSearch} />
+      <Search1 search={searchTerm} onSearch={handelSearch} />
       <div>
         <List list={searchedStories} />
       </div>
