@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Search = () => {
   const handelChange = (e) => {
@@ -9,17 +9,25 @@ const Search = () => {
     console.log("Button click ...");
   };
 
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   function handlClick() {
     setCount(count + 1);
   }
 
-  const [text, setText] = React.useState("");
+  const [text, setText] = useState("");
 
   function handleChange(event) {
     setText(event.target.value);
   }
+
+  //React State
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleChange1 = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <div>
       <h3>Search</h3>
@@ -56,6 +64,14 @@ const Search = () => {
 
         {text}
       </div>
+
+      <hr />
+
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" onChange={handleChange1} />
+      <p>
+        Searching for <strong>{searchTerm}</strong>.
+      </p>
     </div>
   );
 };

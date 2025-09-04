@@ -75,31 +75,36 @@ function App() {
   const handleIncrement = () => {
     setCount(count + 1);
   };
+
+  //Asynchronous State in React
+
+  const [count5, setCount5] = React.useState(0);
+
+  const handleIncrease5 = () => {
+    setTimeout(() => setCount5(count5 + 1), 1000);
+  };
+
+  const handleDecrease5 = () => {
+    setTimeout(() => setCount5(count5 - 1), 1000);
+  };
   return (
     <div>
       <h1>Hello {getTitle("React")}</h1>
-
       <Search />
       <hr />
       <List list={list} />
-
       <hr />
-
       <button onClick={handleToggle}>Toggle</button>
       {isShow ? <Welcome text={greeting} /> : null}
-
       <button onClick={handleToggle2}>Toggle</button>
       <input type="text" value={greeting2} onChange={handleChange2} />
       {isShow2 ? <Welcome text={greeting2} /> : null}
-
       <Button label="Toggle" onClick={handleToggle3} />
       <input type="text" value={greeting3} onChange={handleChange3} />
       {isShow3 ? <Welcome text={greeting3} /> : null}
-
       <Button1 disabled={false} onClick4={handleIncrement}>
         {count}
       </Button1>
-
       <div>
         <h1>US Dollar to Euro Converter</h1>
         <Amount toCurrency={(amount) => <Euro amount={amount} />} />
@@ -116,6 +121,16 @@ function App() {
           </li>
         ))}
       </ul>
+      <hr />
+      Count5: {count5}
+      <div>
+        <button type="button" onClick={handleIncrease5}>
+          Increase
+        </button>
+        <button type="button" onClick={handleDecrease5}>
+          Decrease
+        </button>
+      </div>
     </div>
   );
 }
