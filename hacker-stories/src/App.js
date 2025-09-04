@@ -1,7 +1,10 @@
+import Amount from "./Amount";
 import "./App.css";
 import Button from "./Button";
 import Button1 from "./Button1";
+import Euro from "./Euro";
 import List from "./List";
+import Pound from "./Pound";
 import Search from "./Search";
 import Welcome from "./Welcome";
 import React, { useState } from "react";
@@ -97,6 +100,13 @@ function App() {
         {count}
       </Button1>
 
+      <div>
+        <h1>US Dollar to Euro Converter</h1>
+        <Amount toCurrency={(amount) => <Euro amount={amount} />} />
+
+        <h1>US Dollar to Pound Converter</h1>
+        <Amount toCurrency={(amount) => <Pound amount={amount} />} />
+      </div>
       <hr />
       <h2>List friends</h2>
       <ul>
