@@ -1,5 +1,6 @@
 import "./App.css";
 import Button from "./Button";
+import Button1 from "./Button1";
 import List from "./List";
 import Search from "./Search";
 import Welcome from "./Welcome";
@@ -65,6 +66,12 @@ function App() {
   const handleToggle3 = () => {
     setShow3(!isShow3);
   };
+
+  // React Rest Props
+  const [count, setCount] = useState(0);
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
   return (
     <div>
       <h1>Hello {getTitle("React")}</h1>
@@ -85,6 +92,9 @@ function App() {
       <Button label="Toggle" onClick={handleToggle3} />
       <input type="text" value={greeting3} onChange={handleChange3} />
       {isShow3 ? <Welcome text={greeting3} /> : null}
+
+      <Button1 label4={count} disabled={false} onClick4={handleIncrement} />
+
       <hr />
       <h2>List friends</h2>
       <ul>
