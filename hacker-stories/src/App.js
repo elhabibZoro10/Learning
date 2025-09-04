@@ -8,7 +8,7 @@ import Pound from "./Pound";
 import Search from "./Search";
 import Search1 from "./Search1";
 import Welcome from "./Welcome";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
 function getTitle(title) {
   return title;
@@ -43,6 +43,23 @@ const articles = [
   { id: 2, title: "omaar bennani" },
   { id: 3, title: "hermano boy" },
 ];
+
+//Spread and Rest Operators
+
+const profile = {
+  firstName: "Robin",
+  lastName: "Wieruch",
+};
+const address = {
+  country: "Germany",
+  city: "Berlin",
+};
+const user = {
+  ...profile,
+  gender: "male",
+  ...address,
+};
+console.log(user);
 
 function App() {
   //React Props vs. State

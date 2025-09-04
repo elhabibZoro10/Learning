@@ -6,7 +6,7 @@ const List = ({ list }) => {
     <div>
       <ul>
         {list.map((item) => (
-          <Item item={item} />
+          <Item {...item} />
         ))}
       </ul>
     </div>
